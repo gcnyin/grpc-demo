@@ -1,0 +1,27 @@
+/**
+* see:
+* https://developers.google.com/protocol-buffers/docs/proto3
+*/
+
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/gcnyin/grpc-demo/examples/user";
+
+service UserService {
+  rpc GetUserById (GetUserByIdRequest) returns (GetUserByIdResponse);
+}
+
+message GetUserByIdRequest {
+  string userId = 1;
+}
+
+message GetUserByIdResponse {
+  optional User user = 1;
+}
+
+message User {
+  string userId = 1;
+  string username = 2;
+}
