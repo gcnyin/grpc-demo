@@ -24,6 +24,7 @@ import (
 	"time"
 
 	pb "github.com/gcnyin/grpc-demo/user"
+	"github.com/google/uuid"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
@@ -45,7 +46,7 @@ func main() {
 	// Contact the server and print out its response.
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
-	r, err := c.GetUserById(ctx, &pb.GetUserByIdRequest{UserId: "089e11c4-2180-40f0-a8e6-347a692ef256"})
+	r, err := c.GetUserById(ctx, &pb.GetUserByIdRequest{UserId: uuid.New().String()})
 	if err != nil {
 		log.Fatalf("could not GetUserById: %v", err)
 	}
