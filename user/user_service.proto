@@ -7,8 +7,6 @@ syntax = "proto3";
 
 package user;
 
-option go_package = "github.com/gcnyin/grpc-demo/examples/user";
-
 service UserService {
   rpc GetUserById (GetUserByIdRequest) returns (GetUserByIdResponse);
 }
